@@ -163,6 +163,23 @@
     .float-card{display:none;}
     .mini-cases-bento{grid-template-columns:1fr;}
   }
+
+  /* legacy section styles — will be replaced by Task 3 */
+  .segments{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px;}
+  .segment{border:1px solid var(--border);border-radius:14px;padding:22px 16px;text-align:center;background:var(--surface);}
+  .segment .ic{width:42px;height:42px;border-radius:50%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--cyan);}
+  .segment p{font-weight:600;font-size:14px;color:var(--text);}
+  .sectors-line{text-align:center;font-size:15px;max-width:680px;margin:0 auto;color:var(--muted);}
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .mini-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .mini-case .tag{margin-bottom:14px;}
+  .mini-case h3{font-size:17px;margin-bottom:8px;}
+  .mini-case .result{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-family:var(--ff-mono);font-size:13px;color:var(--cyan);}
+  @media (max-width:980px){
+    .segments{grid-template-columns:1fr 1fr;}
+    .cards3{grid-template-columns:1fr;}
+    .mini-cases{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
