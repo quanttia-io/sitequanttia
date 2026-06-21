@@ -67,22 +67,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ---- Cases filter ----
-  const filterTabs = document.querySelectorAll('.filter-tab');
-  const caseCards = document.querySelectorAll('.case-card');
-
-  filterTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      filterTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const filter = tab.dataset.filter;
-      caseCards.forEach(card => {
-        if (filter === 'all' || card.dataset.segment === filter) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    });
-  });
 });
