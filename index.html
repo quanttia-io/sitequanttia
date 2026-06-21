@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quanttia — Business Intelligence + Inteligência Artificial para decisões de negócio</title>
+<meta name="description" content="A Quanttia une Business Intelligence e Inteligência Artificial para transformar dados dispersos em decisões estratégicas e automatizadas. Agende um diagnóstico gratuito.">
+<meta property="og:title" content="Quanttia — Dados em decisões">
+<meta property="og:description" content="Business Intelligence + Inteligência Artificial aplicados a negócios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Quanttia",
+  "url": "https://quanttia.bi",
+  "description": "Consultoria especializada em Análise de Dados, Business Intelligence e Inteligência Artificial aplicada a negócios.",
+  "sameAs": ["https://instagram.com/quanttia.bi"]
+}
+</script>
+<style>
+  .hero{padding:170px 0 100px;}
+  .hero .container{display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center;}
+  .hero h1{font-size:clamp(38px,5vw,60px);margin-bottom:20px;}
+  .hero h1 .hl{background:var(--gradient-data);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p.lead{font-size:18px;max-width:500px;margin-bottom:34px;}
+  .hero-ctas{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+
+  /* dashboard mockup */
+  .dash{
+    background:var(--surface);border:1px solid var(--border-strong);border-radius:18px;
+    box-shadow:var(--shadow-card);padding:0;overflow:hidden;
+    transform:perspective(1200px) rotateY(-6deg) rotateX(2deg);
+  }
+  .dash-bar{display:flex;gap:6px;padding:14px 16px;border-bottom:1px solid var(--border);}
+  .dash-bar span{width:9px;height:9px;border-radius:50%;background:var(--border-strong);}
+  .dash-body{padding:22px;}
+  .dash-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;}
+  .dash-kpi{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:12px;}
+  .dash-kpi .v{font-family:var(--ff-display);font-weight:700;font-size:18px;color:#fff;}
+  .dash-kpi .l{font-size:10.5px;color:var(--muted);margin-top:2px;}
+  .dash-kpi .up{color:var(--cyan);font-size:10.5px;}
+  .dash-chart{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:14px;}
+  .dash-bars{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:16px;display:flex;align-items:flex-end;gap:10px;height:90px;}
+  .dash-bars .col{flex:1;border-radius:4px 4px 0 0;background:var(--gradient-data);opacity:.85;}
+
+  .segments{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px;}
+  .segment{border:1px solid var(--border);border-radius:14px;padding:22px 16px;text-align:center;background:var(--surface);}
+  .segment .ic{width:42px;height:42px;border-radius:50%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--cyan);}
+  .segment p{font-weight:600;font-size:14px;color:var(--text);}
+  .sectors-line{text-align:center;font-size:15px;max-width:680px;margin:0 auto;}
+
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+
+  .mini-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .mini-case .tag{margin-bottom:14px;}
+  .mini-case h3{font-size:17px;margin-bottom:8px;}
+  .mini-case .result{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-family:var(--ff-mono);font-size:13px;color:var(--cyan);}
+
+  .testimonial{
+    max-width:760px;margin:0 auto;text-align:center;
+    border:1px solid var(--border);border-radius:var(--radius-lg);padding:48px;background:var(--surface);
+  }
+  .testimonial p.quote{font-family:var(--ff-display);font-size:clamp(19px,2.4vw,25px);color:#fff;font-weight:500;line-height:1.4;margin-bottom:22px;}
+  .testimonial .author{font-size:13.5px;color:var(--muted);}
+
+  .final-cta{text-align:center;}
+  .final-cta h2{margin-bottom:16px;}
+  .final-cta p{max-width:520px;margin:0 auto 30px;font-size:16.5px;}
+
+  .hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
+  .hero-tags span{font-family:var(--ff-mono);font-size:12px;font-weight:600;letter-spacing:.06em;padding:5px 13px;border-radius:999px;border:1px solid var(--border-strong);color:var(--muted);}
+
+  @media (max-width:980px){
+    .hero .container{grid-template-columns:1fr;}
+    .dash{order:-1;transform:none;}
+    .segments{grid-template-columns:1fr 1fr;}
+    .cards3{grid-template-columns:1fr;}
+    .mini-cases{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <svg class="q-mark" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="42" r="32" stroke="#fff" stroke-width="11"/><path d="M50 42 L72 70 L50 70 Z" fill="#fff"/></svg>
+      QUANTTIA
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="servicos.html">Serviços</a></li>
+      <li><a href="cases.html">Cases</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contato.html" class="nav-cta">Agendar diagnóstico</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu"><span></span></button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero grid-bg">
+  <div class="glow-spot" style="width:520px;height:520px;top:-160px;right:-120px;"></div>
+  <div class="container">
+    <div data-reveal>
+      <div class="eyebrow">Especialistas em Business Intelligence</div>
+      <h1>Dados que viram <span class="hl">decisões</span> para a sua empresa.</h1>
+      <p class="lead">A Quanttia projeta dashboards, análises e treinamentos para equipes que querem clareza nos dados — e não mais achismo nas decisões.</p>
+      <div class="hero-ctas">
+        <a href="contato.html" class="btn-primary">
+          Agendar diagnóstico gratuito
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="servicos.html" class="btn-secondary">Ver serviços</a>
+      </div>
+      <div class="hero-tags">
+        <span>Power BI</span><span>SQL & ETL</span><span>Analytics</span>
+      </div>
+    </div>
+
+    <div class="dash" data-reveal>
+      <div class="dash-bar"><span></span><span></span><span></span></div>
+      <div class="dash-body">
+        <div class="dash-kpis">
+          <div class="dash-kpi"><div class="v">R$ 2.4M</div><div class="l">Receita</div><div class="up">↑ 18%</div></div>
+          <div class="dash-kpi"><div class="v">R$ 1.230</div><div class="l">Ticket médio</div><div class="up">↑ 6%</div></div>
+          <div class="dash-kpi"><div class="v">2.1%</div><div class="l">Churn</div><div class="up" style="color:#f87171;">↓ 0.4pp</div></div>
+        </div>
+        <div class="dash-chart">
+          <svg viewBox="0 0 280 70" width="100%" height="70">
+            <defs>
+              <linearGradient id="lineFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,55 L40,40 L80,46 L120,24 L160,30 L200,12 L240,18 L280,4 L280,70 L0,70 Z" fill="url(#lineFill)"/>
+            <path d="M0,55 L40,40 L80,46 L120,24 L160,30 L200,12 L240,18 L280,4" fill="none" stroke="#22D3EE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="dash-bars">
+          <div class="col" style="height:45%"></div>
+          <div class="col" style="height:70%"></div>
+          <div class="col" style="height:55%"></div>
+          <div class="col" style="height:85%"></div>
+          <div class="col" style="height:65%"></div>
+          <div class="col" style="height:95%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== SEGMENTOS ===== -->
+<section>
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow">Para quem trabalhamos</div>
+      <h2>De autônomos a grandes operações.</h2>
+    </div>
+    <div class="segments">
+      <div class="segment" data-reveal><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div><p>Varejo</p></div>
+      <div class="segment" data-reveal><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div><p>Indústria</p></div>
+      <div class="segment" data-reveal><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><p>Saúde</p></div>
+      <div class="segment" data-reveal><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><p>Serviços</p></div>
+      <div class="segment" data-reveal><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><p>Logística</p></div>
+      <div class="segment" data-reveal><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><p>Educação</p></div>
+    </div>
+    <p class="sectors-line" data-reveal>Adaptamos BI e análise de dados à realidade de cada operação — do diagnóstico inicial à evolução contínua dos indicadores.</p>
+  </div>
+</section>
+
+<!-- ===== O QUE FAZEMOS ===== -->
+<section class="grid-bg">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow">O que fazemos</div>
+      <h2>Soluções de dados, do diagnóstico à decisão.</h2>
+    </div>
+    <div class="cards3">
+      <div class="card" data-reveal>
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></div>
+        <span class="badge-pill">BUSINESS INTELLIGENCE</span>
+        <h3 style="margin-top:14px;">Dashboards & Indicadores</h3>
+        <p>Organizamos seus dados e construímos dashboards sob medida, com KPIs visíveis em tempo real.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></div>
+        <span class="badge-pill cyan">ANÁLISE DE DADOS</span>
+        <h3 style="margin-top:14px;">Análise de Dados</h3>
+        <p>Diagnósticos profundos, segmentações e previsões que revelam padrões ocultos e oportunidades na sua operação.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></div>
+        <span class="badge-pill">CONSULTORIA</span>
+        <h3 style="margin-top:14px;">Consultoria & Treinamentos</h3>
+        <p>Acompanhamos sua equipe na adoção de dados e IA no dia a dia, com treinamento prático e sob medida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MÉTRICAS ===== -->
+<section>
+  <div class="container">
+    <div class="kpi-grid">
+      <div class="kpi" data-reveal><div class="num"><span class="grad" data-count="120" data-suffix="+">0+</span></div><div class="label">Dashboards entregues</div></div>
+      <div class="kpi" data-reveal><div class="num"><span class="grad" data-count="40" data-suffix="+">0+</span></div><div class="label">Clientes atendidos</div></div>
+      <div class="kpi" data-reveal><div class="num"><span class="grad" data-count="98" data-suffix="%">0%</span></div><div class="label">Taxa de satisfação reportada</div></div>
+      <div class="kpi" data-reveal><div class="num"><span class="grad">10x</span></div><div class="label">Decisões mais rápidas com dado</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MINI CASES ===== -->
+<section class="grid-bg">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow">Resultados</div>
+      <h2>Alguns casos que estamos construindo.</h2>
+    </div>
+    <div class="mini-cases">
+      <div class="card mini-case" data-reveal>
+        <span class="badge-pill">[Segmento]</span>
+        <h3>[Cliente / Segmento]</h3>
+        <p>[Desafio resumido em 1 linha — o que travava a operação antes da Quanttia.]</p>
+        <div class="result">[Resultado-chave, ex: -32% no tempo de geração de relatório]</div>
+      </div>
+      <div class="card mini-case" data-reveal>
+        <span class="badge-pill cyan">[Segmento]</span>
+        <h3>[Cliente / Segmento]</h3>
+        <p>[Desafio resumido em 1 linha — o que travava a operação antes da Quanttia.]</p>
+        <div class="result">[Resultado-chave, ex: +18% de leads qualificados]</div>
+      </div>
+      <div class="card mini-case" data-reveal>
+        <span class="badge-pill">[Segmento]</span>
+        <h3>[Cliente / Segmento]</h3>
+        <p>[Desafio resumido em 1 linha — o que travava a operação antes da Quanttia.]</p>
+        <div class="result">[Resultado-chave, ex: dashboard único substitui 6 planilhas]</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;" data-reveal>
+      <a href="cases.html" class="btn-ghost">Ver todos os cases
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEPOIMENTO ===== -->
+<section>
+  <div class="container">
+    <div class="testimonial" data-reveal>
+      <p class="quote">"A Quanttia entregou em 6 semanas o que a gente tentou construir em 2 anos. Agora a liderança revisa o dashboard antes de toda reunião."</p>
+      <div class="author">Diretor Comercial — Setor alimentício</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="grid-bg">
+  <div class="glow-spot" style="width:480px;height:480px;bottom:-180px;left:40%;"></div>
+  <div class="container final-cta" data-reveal>
+    <div class="eyebrow" style="justify-content:center;">Próximo passo</div>
+    <h2>Pronto para transformar dados em decisão?</h2>
+    <p>Agende um diagnóstico gratuito e descubra onde BI e IA destravam resultado no seu negócio.</p>
+    <a href="contato.html" class="btn-primary">
+      Agendar diagnóstico gratuito
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <div class="footer-brand">
+          <svg class="q-mark" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="42" r="32" stroke="#fff" stroke-width="11"/><path d="M50 42 L72 70 L50 70 Z" fill="#fff"/></svg>
+          <strong>QUANTTIA</strong>
+        </div>
+        <p>Business Intelligence e Inteligência Artificial aplicados a decisões de negócio.</p>
+      </div>
+      <div class="footer-links-col">
+        <h4>Navegação</h4>
+        <a href="servicos.html">Serviços</a>
+        <a href="cases.html">Cases</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="footer-links-col">
+        <h4>Contato</h4>
+        <a href="contato.html">Falar com a Quanttia</a>
+        <a href="https://instagram.com/quanttia.bi" target="_blank" rel="noopener">@quanttia.bi</a>
+      </div>
+    </div>
+    <p class="footer-bottom">© <span id="year"></span> Quanttia — Análise de dados e inteligência.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
