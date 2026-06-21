@@ -14,11 +14,12 @@
   .story p{font-size:16px;margin-bottom:14px;}
 
   /* hero sobre com stats */
+  .sobre-hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;}
   .sobre-hero-stats{display:flex;flex-direction:column;gap:24px;padding:20px 0;}
   .stat-item{display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--surface);border:1px solid var(--border);border-radius:16px;transition:border-color .2s;}
   .stat-item:hover{border-color:rgba(59,130,246,0.3);}
   .stat-num{font-family:var(--ff-display);font-size:38px;font-weight:700;background:var(--gradient-data);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;}
-  .stat-label{font-size:13.5px;color:var(--muted);margin-top:4px;}
+  .stat-label{font-size:13.5px;color:var(--muted);margin-top:4px;line-height:1.55;}
 
   /* bento valores */
   .values-bento{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;}
@@ -34,8 +35,8 @@
 
   @media (max-width:900px){
     .story .container{grid-template-columns:1fr;}
-    .sobre-hero-stats{flex-direction:row;flex-wrap:wrap;}
-    .stat-item{flex:1;min-width:140px;}
+    .sobre-hero-grid{grid-template-columns:1fr;gap:32px;}
+    .sobre-hero-stats{flex-direction:column;}
     .values-bento{grid-template-columns:1fr;}
     .value-main{grid-column:span 1;}
     .diff-list{grid-template-columns:1fr;}
@@ -63,7 +64,7 @@
 <header class="page-hero grid-bg">
   <div class="glow-spot" style="width:420px;height:420px;top:-120px;right:-80px;"></div>
   <div class="container">
-    <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;" data-reveal>
+    <div class="sobre-hero-grid" data-reveal>
       <div>
         <div class="eyebrow">Sobre a Quanttia</div>
         <h1>BI e IA com propósito de negócio.</h1>
