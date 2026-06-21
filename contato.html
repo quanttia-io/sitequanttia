@@ -216,7 +216,7 @@ form.addEventListener('submit', async (e) => {
       throw new Error(data.message || 'submit failed');
     }
   } catch (err) {
-    statusEl.textContent = 'Não foi possível enviar agora. Tente novamente ou chame no WhatsApp.';
+    statusEl.textContent = 'Erro: ' + err.message;
     statusEl.className = 'form-status error';
   } finally {
     submitBtn.disabled = false;
