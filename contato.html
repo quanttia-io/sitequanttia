@@ -166,42 +166,16 @@
 <script src="script.js"></script>
 <script>
 /* =================================================================
-   CAPTAÇÃO DE LEAD — grava direto numa tabela do SEU Supabase
-   (Não usamos "Lovable Cloud" pois é infraestrutura de outra
-   ferramenta; isto aqui é o Supabase oficial, gratuito, e funciona
-   100% client-side num site estático.)
+   CAPTAÇÃO DE LEAD — envia via Web3Forms (gratuito, sem limite)
+   Os leads chegam no seu email cadastrado no Web3Forms.
 
    PASSO A PASSO PARA ATIVAR:
-   1) Crie um projeto gratuito em https://supabase.com
-   2) No SQL Editor do projeto, rode:
-
-      create table public.leads (
-        id uuid primary key default gen_random_uuid(),
-        nome text not null,
-        empresa text not null,
-        email text not null,
-        telefone text not null,
-        segmento text,
-        mensagem text,
-        origem text default 'site',
-        created_at timestamptz default now()
-      );
-
-      alter table public.leads enable row level security;
-
-      create policy "allow public insert"
-        on public.leads for insert
-        to anon
-        with check (true);
-
-      -- (sem policy de SELECT pra "anon" = ninguém de fora consegue
-      -- LER os leads, só inserir. Você lê pelo painel do Supabase.)
-
-   3) Em Project Settings → API, copie a "Project URL" e a "anon public key"
-   4) Cole as duas constantes abaixo
+   1) Acesse https://web3forms.com e clique em "Get your Access Key"
+   2) Digite o email da Quanttia — você receberá um link de confirmação
+   3) Confirme o email e copie a Access Key gerada
+   4) Cole a chave na constante WEB3FORMS_KEY abaixo
 ================================================================= */
-const SUPABASE_URL = 'https://SEU-PROJETO.supabase.co';
-const SUPABASE_ANON_KEY = 'SUA_ANON_KEY_AQUI';
+const WEB3FORMS_KEY = 'SUA_ACCESS_KEY_AQUI';
 
 const form = document.getElementById('leadForm');
 const submitBtn = document.getElementById('submitBtn');
@@ -214,33 +188,32 @@ form.addEventListener('submit', async (e) => {
   submitBtn.textContent = 'Enviando...';
 
   const payload = {
+    access_key: WEB3FORMS_KEY,
+    subject: 'Novo lead: ' + form.empresa.value,
+    from_name: form.nome.value,
     nome: form.nome.value,
     empresa: form.empresa.value,
     email: form.email.value,
     telefone: form.telefone.value,
     segmento: form.segmento.value,
-    mensagem: form.mensagem.value,
-    origem: 'site'
+    mensagem: form.mensagem.value
   };
 
   try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+    const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: {
-        'apikey': SUPABASE_ANON_KEY,
-        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-        'Content-Type': 'application/json',
-        'Prefer': 'return=minimal'
-      },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(payload)
     });
 
-    if (res.ok) {
+    const data = await res.json();
+
+    if (data.success) {
       statusEl.textContent = 'Recebemos sua solicitação. Em breve a Quanttia entra em contato.';
       statusEl.className = 'form-status success';
       form.reset();
     } else {
-      throw new Error('submit failed');
+      throw new Error(data.message || 'submit failed');
     }
   } catch (err) {
     statusEl.textContent = 'Não foi possível enviar agora. Tente novamente ou chame no WhatsApp.';
