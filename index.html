@@ -164,22 +164,6 @@
     .mini-cases-bento{grid-template-columns:1fr;}
   }
 
-  /* legacy section styles — will be replaced by Task 3 */
-  .segments{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px;}
-  .segment{border:1px solid var(--border);border-radius:14px;padding:22px 16px;text-align:center;background:var(--surface);}
-  .segment .ic{width:42px;height:42px;border-radius:50%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--cyan);}
-  .segment p{font-weight:600;font-size:14px;color:var(--text);}
-  .sectors-line{text-align:center;font-size:15px;max-width:680px;margin:0 auto;color:var(--muted);}
-  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .mini-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .mini-case .tag{margin-bottom:14px;}
-  .mini-case h3{font-size:17px;margin-bottom:8px;}
-  .mini-case .result{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-family:var(--ff-mono);font-size:13px;color:var(--cyan);}
-  @media (max-width:980px){
-    .segments{grid-template-columns:1fr 1fr;}
-    .cards3{grid-template-columns:1fr;}
-    .mini-cases{grid-template-columns:1fr;}
-  }
 </style>
 </head>
 <body>
@@ -282,13 +266,13 @@
       <div class="eyebrow">Para quem trabalhamos</div>
       <h2>De autônomos a grandes operações.</h2>
     </div>
-    <div class="segments">
-      <div class="segment" data-reveal><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div><p>Varejo</p></div>
-      <div class="segment" data-reveal><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div><p>Indústria</p></div>
-      <div class="segment" data-reveal><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><p>Saúde</p></div>
-      <div class="segment" data-reveal><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><p>Serviços</p></div>
-      <div class="segment" data-reveal><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><p>Logística</p></div>
-      <div class="segment" data-reveal><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><p>Educação</p></div>
+    <div class="segments-tags" data-reveal>
+      <span class="seg-tag"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>Varejo</span>
+      <span class="seg-tag"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>Indústria</span>
+      <span class="seg-tag"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Saúde</span>
+      <span class="seg-tag"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Serviços</span>
+      <span class="seg-tag"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Logística</span>
+      <span class="seg-tag"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Educação</span>
     </div>
     <p class="sectors-line" data-reveal>Adaptamos BI e análise de dados à realidade de cada operação — do diagnóstico inicial à evolução contínua dos indicadores.</p>
   </div>
@@ -301,24 +285,25 @@
       <div class="eyebrow">O que fazemos</div>
       <h2>Soluções de dados, do diagnóstico à decisão.</h2>
     </div>
-    <div class="cards3">
-      <div class="card" data-reveal>
-        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></div>
-        <span class="badge-pill">BUSINESS INTELLIGENCE</span>
-        <h3 style="margin-top:14px;">Dashboards & Indicadores</h3>
-        <p>Organizamos seus dados e construímos dashboards sob medida, com KPIs visíveis em tempo real.</p>
+    <div class="bento">
+      <div class="card bento-main" data-reveal>
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></div>
+        <span class="badge-pill">Business Intelligence</span>
+        <h3 style="margin-top:16px;">Dashboards & Indicadores</h3>
+        <p style="margin-top:10px;">Organizamos seus dados e construímos dashboards sob medida, com KPIs visíveis em tempo real. Do Power BI ao Looker — escolhemos a ferramenta certa para a sua operação.</p>
+        <div class="bento-deco">SELECT receita,<br>ticket_medio,<br>churn_rate<br>FROM analytics<br>WHERE periodo = 'atual'</div>
       </div>
-      <div class="card" data-reveal>
-        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></div>
-        <span class="badge-pill cyan">ANÁLISE DE DADOS</span>
-        <h3 style="margin-top:14px;">Análise de Dados</h3>
-        <p>Diagnósticos profundos, segmentações e previsões que revelam padrões ocultos e oportunidades na sua operação.</p>
+      <div class="card bento-mini" data-reveal>
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></div>
+        <span class="badge-pill cyan">Análise de Dados</span>
+        <h3 style="margin-top:14px;">Análise & Diagnóstico</h3>
+        <p>Diagnósticos profundos, segmentações e previsões que revelam padrões ocultos na sua operação.</p>
       </div>
-      <div class="card" data-reveal>
-        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></div>
-        <span class="badge-pill">CONSULTORIA</span>
+      <div class="card bento-mini" data-reveal>
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></div>
+        <span class="badge-pill">Consultoria</span>
         <h3 style="margin-top:14px;">Consultoria & Treinamentos</h3>
-        <p>Acompanhamos sua equipe na adoção de dados e IA no dia a dia, com treinamento prático e sob medida.</p>
+        <p>Acompanhamos sua equipe na adoção de dados e IA no dia a dia, com treinamento prático.</p>
       </div>
     </div>
   </div>
@@ -327,11 +312,11 @@
 <!-- ===== MÉTRICAS ===== -->
 <section>
   <div class="container">
-    <div class="kpi-grid">
-      <div class="kpi" data-reveal><div class="num"><span class="grad" data-count="120" data-suffix="+">0+</span></div><div class="label">Dashboards entregues</div></div>
-      <div class="kpi" data-reveal><div class="num"><span class="grad" data-count="40" data-suffix="+">0+</span></div><div class="label">Clientes atendidos</div></div>
-      <div class="kpi" data-reveal><div class="num"><span class="grad" data-count="98" data-suffix="%">0%</span></div><div class="label">Taxa de satisfação reportada</div></div>
-      <div class="kpi" data-reveal><div class="num"><span class="grad">10x</span></div><div class="label">Decisões mais rápidas com dado</div></div>
+    <div class="kpi-grid" data-reveal>
+      <div class="kpi"><div class="num"><span class="grad" data-count="120" data-suffix="+">0+</span></div><div class="label">Dashboards entregues</div></div>
+      <div class="kpi"><div class="num"><span class="grad" data-count="40" data-suffix="+">0+</span></div><div class="label">Clientes atendidos</div></div>
+      <div class="kpi"><div class="num"><span class="grad" data-count="98" data-suffix="%">0%</span></div><div class="label">Taxa de satisfação reportada</div></div>
+      <div class="kpi"><div class="num"><span class="grad">10x</span></div><div class="label">Decisões mais rápidas com dado</div></div>
     </div>
   </div>
 </section>
@@ -343,22 +328,25 @@
       <div class="eyebrow">Resultados</div>
       <h2>Alguns casos que estamos construindo.</h2>
     </div>
-    <div class="mini-cases">
-      <div class="card mini-case" data-reveal>
+    <div class="mini-cases-bento">
+      <div class="card mini-case mini-case-a" data-reveal>
+        <div class="case-deco">01</div>
         <span class="badge-pill">[Segmento]</span>
-        <h3>[Cliente / Segmento]</h3>
+        <h3 style="margin-top:14px;">[Cliente / Segmento]</h3>
         <p>[Desafio resumido em 1 linha — o que travava a operação antes da Quanttia.]</p>
         <div class="result">[Resultado-chave, ex: -32% no tempo de geração de relatório]</div>
       </div>
       <div class="card mini-case" data-reveal>
+        <div class="case-deco">02</div>
         <span class="badge-pill cyan">[Segmento]</span>
-        <h3>[Cliente / Segmento]</h3>
-        <p>[Desafio resumido em 1 linha — o que travava a operação antes da Quanttia.]</p>
+        <h3 style="margin-top:14px;">[Cliente / Segmento]</h3>
+        <p>[Desafio resumido em 1 linha.]</p>
         <div class="result">[Resultado-chave, ex: +18% de leads qualificados]</div>
       </div>
-      <div class="card mini-case" data-reveal>
+      <div class="card mini-case mini-case-c" data-reveal>
+        <div class="case-deco">03</div>
         <span class="badge-pill">[Segmento]</span>
-        <h3>[Cliente / Segmento]</h3>
+        <h3 style="margin-top:14px;">[Cliente / Segmento]</h3>
         <p>[Desafio resumido em 1 linha — o que travava a operação antes da Quanttia.]</p>
         <div class="result">[Resultado-chave, ex: dashboard único substitui 6 planilhas]</div>
       </div>
@@ -375,22 +363,24 @@
 <section>
   <div class="container">
     <div class="testimonial" data-reveal>
+      <div class="quote-deco">"</div>
       <p class="quote">"A Quanttia entregou em 6 semanas o que a gente tentou construir em 2 anos. Agora a liderança revisa o dashboard antes de toda reunião."</p>
-      <div class="author">Diretor Comercial — Setor alimentício</div>
+      <div class="author"><strong>Diretor Comercial</strong> — Setor alimentício</div>
     </div>
   </div>
 </section>
 
 <!-- ===== CTA FINAL ===== -->
 <section class="grid-bg">
-  <div class="glow-spot" style="width:480px;height:480px;bottom:-180px;left:40%;"></div>
-  <div class="container final-cta" data-reveal>
+  <div class="final-cta-bg"></div>
+  <div class="glow-spot" style="width:500px;height:500px;bottom:-200px;left:calc(50% - 250px);"></div>
+  <div class="container final-cta" data-reveal style="position:relative;z-index:1;">
     <div class="eyebrow" style="justify-content:center;">Próximo passo</div>
     <h2>Pronto para transformar dados em decisão?</h2>
     <p>Agende um diagnóstico gratuito e descubra onde BI e IA destravam resultado no seu negócio.</p>
     <a href="contato.html" class="btn-primary">
       Agendar diagnóstico gratuito
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
   </div>
 </section>
