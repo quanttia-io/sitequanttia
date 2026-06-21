@@ -10,26 +10,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  .page-hero{padding:160px 0 60px;}
-  .page-hero h1{font-size:clamp(34px,4.6vw,50px);margin-bottom:16px;}
-  .page-hero p{font-size:17px;max-width:600px;}
+  /* filter tabs */
+  .filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
+  .filter-tab{
+    padding:8px 20px;border-radius:999px;font-size:13.5px;font-weight:600;cursor:pointer;
+    border:1.5px solid var(--border-strong);color:var(--muted);
+    background:none;transition:all .2s ease;
+  }
+  .filter-tab:hover{color:var(--text);border-color:rgba(59,130,246,0.4);}
+  .filter-tab.active{background:var(--gradient-data);color:#04101F;border-color:transparent;box-shadow:0 4px 16px rgba(59,130,246,0.3);}
+
+  /* cases grid */
   .cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-  .case-card .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;}
-  .case-card h3{font-size:20px;margin-bottom:4px;}
-  .case-card .seg{font-size:13px;color:var(--muted);}
-  .case-card .row{margin-top:16px;}
-  .case-card .row h4{font-family:var(--ff-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:6px;}
-  .case-card .row p{font-size:14px;color:var(--text);}
-  .case-card .result{
-    margin-top:20px;padding:14px 16px;border-radius:10px;
-    background:rgba(34,211,238,0.08);border:1px solid rgba(34,211,238,0.2);
-    font-family:var(--ff-mono);font-size:13.5px;color:var(--cyan);
+  .case-card{padding:32px;position:relative;overflow:hidden;}
+  .case-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient-data);}
+  .case-card.hidden{display:none;}
+  .case-card h3{font-size:19px;margin:14px 0 10px;}
+  .case-card .result{margin-top:18px;padding-top:16px;border-top:1px solid var(--border);font-family:var(--ff-mono);font-size:12.5px;color:var(--cyan);}
+  .case-card .challenge{font-size:14.5px;}
+
+  @media (max-width:760px){
+    .cases-grid{grid-template-columns:1fr;}
+    .filter-tabs{gap:6px;}
+    .filter-tab{font-size:12.5px;padding:7px 14px;}
   }
-  .note-banner{
-    margin-top:50px;border:1px dashed var(--border-strong);border-radius:14px;padding:20px 24px;
-    font-size:13.5px;color:var(--muted-2);text-align:center;
-  }
-  @media (max-width:900px){.cases-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -61,55 +65,39 @@
 
 <section>
   <div class="container">
-    <div class="cases-grid">
-      <div class="card case-card" data-reveal>
-        <div class="top">
-          <div><h3>[Nome do cliente / Segmento]</h3><div class="seg">[Setor — ex: Varejo, Saúde, Condomínios]</div></div>
-          <span class="badge-pill">[BI]</span>
-        </div>
-        <div class="row"><h4>Desafio</h4><p>[Descreva em 1-2 frases o problema do cliente antes da Quanttia.]</p></div>
-        <div class="row"><h4>Solução</h4><p>[Descreva o que foi entregue: dashboard, automação, treinamento.]</p></div>
+    <div class="filter-tabs" data-reveal>
+      <button class="filter-tab active" data-filter="all">Todos</button>
+      <button class="filter-tab" data-filter="varejo">Varejo</button>
+      <button class="filter-tab" data-filter="industria">Indústria</button>
+      <button class="filter-tab" data-filter="saude">Saúde</button>
+      <button class="filter-tab" data-filter="servicos">Serviços</button>
+      <button class="filter-tab" data-filter="logistica">Logística</button>
+    </div>
+    <div class="cases-grid" id="casesGrid">
+      <div class="card case-card" data-segment="varejo" data-reveal>
+        <span class="badge-pill">Varejo</span>
+        <h3>[Cliente Varejo]</h3>
+        <p class="challenge">[Desafio: o que travava a operação antes da Quanttia.]</p>
         <div class="result">[Resultado-chave, ex: -32% no tempo de geração de relatório]</div>
       </div>
-
-      <div class="card case-card" data-reveal>
-        <div class="top">
-          <div><h3>[Nome do cliente / Segmento]</h3><div class="seg">[Setor]</div></div>
-          <span class="badge-pill cyan">[IA]</span>
-        </div>
-        <div class="row"><h4>Desafio</h4><p>[Descreva em 1-2 frases o problema do cliente antes da Quanttia.]</p></div>
-        <div class="row"><h4>Solução</h4><p>[Descreva o que foi entregue: dashboard, automação, treinamento.]</p></div>
-        <div class="result">[Resultado-chave, ex: +18% de leads qualificados]</div>
+      <div class="card case-card" data-segment="industria" data-reveal>
+        <span class="badge-pill cyan">Indústria</span>
+        <h3>[Cliente Indústria]</h3>
+        <p class="challenge">[Desafio.]</p>
+        <div class="result">[Resultado-chave]</div>
       </div>
-
-      <div class="card case-card" data-reveal>
-        <div class="top">
-          <div><h3>[Nome do cliente / Segmento]</h3><div class="seg">[Setor]</div></div>
-          <span class="badge-pill">[BI]</span>
-        </div>
-        <div class="row"><h4>Desafio</h4><p>[Descreva em 1-2 frases o problema do cliente antes da Quanttia.]</p></div>
-        <div class="row"><h4>Solução</h4><p>[Descreva o que foi entregue: dashboard, automação, treinamento.]</p></div>
-        <div class="result">[Resultado-chave, ex: dashboard único substitui 6 planilhas]</div>
+      <div class="card case-card" data-segment="saude" data-reveal>
+        <span class="badge-pill">Saúde</span>
+        <h3>[Cliente Saúde]</h3>
+        <p class="challenge">[Desafio.]</p>
+        <div class="result">[Resultado-chave]</div>
       </div>
-
-      <div class="card case-card" data-reveal>
-        <div class="top">
-          <div><h3>[Nome do cliente / Segmento]</h3><div class="seg">[Setor]</div></div>
-          <span class="badge-pill cyan">[Consultoria]</span>
-        </div>
-        <div class="row"><h4>Desafio</h4><p>[Descreva em 1-2 frases o problema do cliente antes da Quanttia.]</p></div>
-        <div class="row"><h4>Solução</h4><p>[Descreva o que foi entregue: dashboard, automação, treinamento.]</p></div>
-        <div class="result">[Resultado-chave, ex: equipe autônoma em 30 dias]</div>
+      <div class="card case-card" data-segment="servicos" data-reveal>
+        <span class="badge-pill cyan">Serviços</span>
+        <h3>[Cliente Serviços]</h3>
+        <p class="challenge">[Desafio.]</p>
+        <div class="result">[Resultado-chave]</div>
       </div>
-    </div>
-
-    <p class="note-banner" data-reveal>Conteúdo placeholder — me envie os cases reais (com autorização dos clientes) que eu atualizo esta página.</p>
-
-    <div style="text-align:center;margin-top:44px;" data-reveal>
-      <a href="contato.html" class="btn-primary">
-        Quero resultados parecidos
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
     </div>
   </div>
 </section>
